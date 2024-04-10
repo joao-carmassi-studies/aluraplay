@@ -1,5 +1,7 @@
 import { conectaApi } from "./conectaApi.js";
 
+let listaApi;
+
 const lista = document.querySelector('[data-lista]');
 
 function constroicard(titulo, descricao, url, imagem) {
@@ -22,7 +24,25 @@ function constroicard(titulo, descricao, url, imagem) {
 }
 
 async function listaVideo() {
-    const listaApi = await conectaApi.listaVideos();
+    listaApi = await conectaApi.listaVideos();
     listaApi.forEach(elemento => lista.appendChild(constroicard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)));
 }
 listaVideo();
+
+async function bucarVideos(evento) {
+    const dadosDePesquisa = document.querySelector('.pesquisar__input').value;
+
+    lista.innerHTML = ''
+    
+    listaApi.forEach(element => {
+        const nomeDoVideos = element.titulo.toLowerCase()
+        if(nomeDoVideos.includes(dadosDePesquisa)) {
+            console.log(element.titulo)
+            lista.appendChild(constroicard(element.titulo, element.descricao, element.url, element.imagem))
+        }
+    });
+}
+
+const botaoDePesquisa = document.querySelector('[data-botao-pesquisa]');
+
+botaoDePesquisa.addEventListener('click', evento => bucarVideos(evento))

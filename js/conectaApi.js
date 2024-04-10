@@ -1,5 +1,5 @@
 async function listaVideos() {
-    const conexao = await fetch('http://localhost:3000/videos');
+    const conexao = await fetch('https://api.npoint.io/4c4a8aee037e137da872/videos');
     const conexaoConvertida = await conexao.json();
 
     return conexaoConvertida;
@@ -23,15 +23,7 @@ async function criaVideos(titulo, descricao, url, imagem){
     return conexaoConvertida
 }
 
-async function bucarVideo(termoDeBusca) {
-    const conexao = await fetch(`http://localhost:3000/videos?q=${termoDeBusca}`)
-    const conexaoConvertida = await conexao.json();
-
-    return conexaoConvertida
-}
-
 export const conectaApi = {
     listaVideos,
-    criaVideos,
-    bucarVideo
+    criaVideos
 }

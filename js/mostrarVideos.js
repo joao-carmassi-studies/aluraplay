@@ -29,7 +29,7 @@ async function listaVideo() {
 }
 listaVideo();
 
-async function bucarVideos(evento) {
+function bucarVideos(evento) {
     const dadosDePesquisa = document.querySelector('.pesquisar__input').value;
 
     lista.innerHTML = ''

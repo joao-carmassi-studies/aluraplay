@@ -19,4 +19,4 @@
 ![Screenshot da tela do formulário do AluraPlay](https://imgur.com/ShNADf2.png)
 
 ## Link:
-https://joao-carmassi.github.io/Aluraplay/
+https://joao-carmassi.github.io/aluraplay/
